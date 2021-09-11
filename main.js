@@ -1,48 +1,75 @@
-//console.dir(document);
-//console.dir(document.domain);
-//console.dir(document.URL);
-//console.log(document.title);
-// document.title  = 123;
-//console.dir(document.doctype);
-//console.log(document.head);
-//console.log(document.body);
-//console.dir(document.all);
-//console.dir(document.all[10]);
+// TRAVERSING THE DOM //
+// var itemList = document.querySelector('#items');
+// console.log(itemList.parentNode);
+// itemList.parentNode.style.backgroundColor = '#f4f4f4';
+// console.log(itemList.parentNode.parentNode.parentNode);
 
-// GETELEMENTID // 
-//var headerTitle = document.getElementById('header-title');
-//console.log(headerTitle);
-// headerTitle.textContent = 'Hello'; 
-// headerTitle.innerText = "good bye";
+// // ParentElement
+// console.log(itemList.parentElement);
+// itemList.parentElement.style.backgroundColor = '#f4f4f4';
+// console.log(itemList.parentElement.parentElement.parentElement);
 
-// headerTitle.style.borderBottom = 'solid 3px #000';
+//childNodes
+//console.log(itemList.childNodes);
 
+// console.log(itemList.children);
+// console.log(itemList.childern[1]);
+// itemList.childern[1].style.backgroundColor = 'yellow';
 
-// GETELEMENTBYCLASS //
-//var items =  document.getElementsByClassName('list-group-item');
-//console.log(items);
-//items[0].textContent = 'hello';
-//items[0].style.fontWeight = 'bold';
-//items[0].style.background = 'green';
+// FIRSTCHILD
+// console.log(itemList.firstChild);
+//  firstElementChild
+// console.log(itemList.firstElementChild);
+// itemList.firstElementChild.textContent = 'Hello'
 
-//QUERYSELECTOR //
-//var header = document.querySelector('main-header');
-//header.style.borderBottom = 'solid 4px #ccc';
+// lastCHILD
+// console.log(itemList.lastChild);
+// //  firstElementChild
+// console.log(itemList.lastElementChild);
+//  itemList.lastElementChild.textContent = 'Hello'
 
-//var input = document.querySelector('input');
-//input.value = 'hello world';
+// nextSilibling
+// console.log(itemList.nextSibling);
+// // nextElementSibling
+// console.log(itemList.nextElementSibling);
 
-//var submit = document.querySelector('input[type="submit"]');
-//submit.value="SEND";
+// previousSilibling
+// console.log(itemList.previousSibling);
+// // // nextElementSibling
+// console.log(itemList.previousElementSibling);
 
-var item = document.querySelector('.list-group-item');
-item.style.color = 'green';
+//Create new Div
+//var newDiv = document.createElement('div');
 
-var secondItem = document.querySelector('.list-group-item:nth-child(2)');
-secondItem.style.color = 'green';
+// // Add class
+// newDiv.className = 'hello';
 
-var thirdItem = document.querySelector('.list-group-item:nth-child(3)');
-thirdItem.style.color = 'green';
+// //Add id
+// newDiv.id = 'hello1';
 
-var lastItem = document.querySelector('.list-group-item:last-child');
-lastItem.style.color = 'green';
+// // Add attr
+// newDiv.setAttribute('title', 'hello div');
+
+// // create text node 
+// var newDivText = document.createTextNode('Hello World');
+
+// //Add text to div
+// newDiv.appendChild(newDivText);
+
+// var container = document.querySelector('header .container');
+// var h1 = document.querySelector('header h1');
+
+// console.log(newDiv);
+
+// container.insertBefore(newDiv, h1);
+
+// var h2 = document.createElement('h1');
+// h2.className = "hello";
+// h2.setAttribute('title', 'helloh2');
+// var h2Text = document.createTextNode('hello');
+// h2.appendChild(h2Text);
+// var title = document.querySelector('header .container');
+// var h1 = document.querySelector('header 1');
+
+// console.log(h2);
+// container.insertBefore(h2, h1);
