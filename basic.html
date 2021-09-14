@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="saveToLocalStorage(event)">
+      <label>Name</label> <br>
+      <input type="text" name="username" required><br>
+      <label>Email Id</label> <br>
+      <input type="text" name="emailId" required><br>
+      <label>Phone Number</label> <br>
+      <input type="tel" name="phonenumber" required><br><br>
+       <button>submit</button>
+    
+    </form>
+    <ul id='listOfUsers'></ul>
+    <script>
+        function saveToLocalStorage(event){
+            event.preventDefault();
+                const name = event.target.username.value;
+                const email = event.target.emailId.value;
+                const phonenumber = event.target.phonenumber.value;
+               
+                const obj = {
+                    name,
+                    email,
+                    phonenumber
+                }
+                localStorage.setItem(obj.email ,JSON.stringify(obj));
+                showNewUserOnScreen(obj);
+            
+        }
+
+        function showNewUserOnScreen(user){
+            const parentNode = document.getElementById('listOfUsers');
+            const childHTML = `<li id=${user.email}> ${user.name} - ${user.email} 
+                              <button onclick=deleteUser('${user.email}')> Delete User
+                              </li>`
+
+            parentNode.innerHTML = parentNode.innerHTML + childHTML; 
+        }
+
+        function deleteUser(emailId){
+            console.log(emailId)
+            localStorage.removeItem(emailId);
+            removeUserFromScreen(emailId);
+        }
+
+        function removeUserFromScreen(emailId){
+            const parentNode = document.getElementById('listOfUsers');
+            const childNodeToBeDeleted = document.getElementById(emailId);
+
+            parentNode.removeChild(childNodeToBeDeleted);
+        }
+
+    </script>
+
+</body>
+</html>
